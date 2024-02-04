@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Single+Day&display=swap");
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  z-index: -1;
+}
+
+.gato-fruta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #98332b;
+  width: 300px;
+  height: 230px;
+  border-radius: 40%/40%;
+  position: relative;
+}
+
+.gato-fruta::before,
+.gato-fruta::after {
+  font-family: "Single Day";
+  content: "GatoMate";
+  font-size: 100px;
+  position: fixed;
+  bottom: -25px;
+  color: #1b191a;
+  font-weight: bold;
+}
+
+.cabeza {
+  background-color: #1b191a;
+  width: 130px;
+  height: 115px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 300px;
+  left: 610px;
+  z-index: 5;
+}
+
+.oreja {
+  background-color: #1b191a;
+  width: 40px;
+  height: 60px;
+  border-radius: 60% 60% 0 0;
+  position: fixed;
+  top: 42%;
+  transform: translateY(-30%);
+  transform-origin: bottom center;
+}
+
+.oreja::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  border-radius: 60% 60% 0 0;
+  transform-origin: bottom center;
+}
+
+.oreja-izquierda {
+  transform: rotate(-20deg);
+  left: 42%;
+}
+
+.oreja-derecha {
+  transform: rotate(25deg);
+  left: 46%;
+}
+
+.cara {
+  position: relative;
+  top: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.ojo {
+  background-color: #bebebe;
+  width: 40px;
+  height: 45px;
+  border-radius: 45%;
+  margin: 0 5px;
+  position: relative;
+}
+
+.ojo::before {
+  content: "";
+  position: fixed;
+  top: 52%;
+  left: 46%;
+  width: 15px;
+  height: 15px;
+  background-color: #1b191a;
+  border-radius: 40%;
+  z-index: 1;
+}
+
+.ojo + .ojo::before {
+  content: "";
+  position: fixed;
+  top: 52%;
+  left: 43%;
+  width: 15px;
+  height: 15px;
+  background-color: #1b191a;
+  border-radius: 40%;
+}
+
+.cuerpo {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.cuerpo > div:nth-child(1) {
+  background-color: #1b191a;
+}
+.cuerpo > div:nth-child(2) {
+  background-color: #1b191a;
+}
+.cuerpo > div:nth-child(3) {
+  background-color: #1b191a;
+}
+.cuerpo > div:nth-child(4) {
+  background-color: #1b191a;
+}
+
+.pierna-delantera,
+.pierna-trasera {
+  width: 35px;
+  height: 70px;
+  border-radius: 40%;
+}
+
+.pierna-delantera {
+  margin: 5px 20px;
+  transform: translate(-15%, 260%);
+}
+
+.pierna-trasera {
+  margin: 10px 15px;
+  transform: translate(20%, 240%);
+  z-index: -1;
+}
+
+.cola {
+  background-color: #1b191a;
+  width: 35px;
+  height: 150px;
+  border-radius: 50%;
+  position: relative;
+  transform: rotate(80deg);
+  left: 200px;
+  top: -10px;
+  z-index: -1;
+}
+
+.hoja1 {
+  content: "";
+  position: fixed;
+  background-color: #4b594c;
+  width: 100px;
+  height: 40px;
+  left: 50%;
+  bottom: 65%;
+  transform: rotate(-30deg);
+  border-radius: 40%;
+}
+.hoja2 {
+  content: "";
+  position: fixed;
+  background-color: #4b594c;
+  width: 100px;
+  height: 40px;
+  left: 44%;
+  bottom: 65%;
+  transform: rotate(30deg);
+  border-radius: 40%;
+}
+.hoja3 {
+  content: "";
+  position: fixed;
+  background-color: #4b594c;
+  width: 100px;
+  height: 40px;
+  left: 47%;
+  bottom: 67%;
+  transform: rotate(90deg);
+  border-radius: 40%;
+}
+
+/* Animaciones y transiciones */
+.cabeza:hover .oreja {
+  /*Selector " "*/
+  animation: orejaMovimiento 0.5s ease-in-out infinite;
+}
+
+@keyframes orejaMovimiento {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.gato-fruta:hover .hoja1 {
+  /*Selector " "*/
+  animation: balanceoHoja 1s ease-in-out infinite;
+}
+
+@keyframes balanceoHoja {
+  0%,
+  100% {
+    transform: rotate(-30deg);
+  }
+  25% {
+    transform: rotate(-35deg);
+  }
+  75% {
+    transform: rotate(-30deg);
+  }
+}
+
+.gato-fruta:hover .hoja2 {
+  /*Selector " "*/
+  animation: balanceoHoja2 1s ease-in-out infinite;
+}
+
+@keyframes balanceoHoja2 {
+  0%,
+  100% {
+    transform: rotate(30deg);
+  }
+  25% {
+    transform: rotate(35deg);
+  }
+  75% {
+    transform: rotate(30deg);
+  }
+}
+
+.cola:hover {
+  transition: transform 0.5s ease;
+  transform: rotate(100deg);
+}
