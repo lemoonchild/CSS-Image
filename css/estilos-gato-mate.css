@@ -1,157 +1,165 @@
 @import url("https://fonts.googleapis.com/css2?family=Single+Day&display=swap");
 
-body,
-html {
+html,
+body {
   height: 100%;
   margin: 0;
+}
+
+.background {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
   background-color: #f0f0f0;
-  z-index: -1;
+  min-height: 100vh;
+  position: relative;
 }
 
-.gato-fruta {
+.tomate {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #98332b;
-  width: 300px;
-  height: 230px;
+  width: 350px;
+  height: 270px;
   border-radius: 40%/40%;
   position: relative;
+  z-index: 10;
 }
 
-.gato-fruta::before,
-.gato-fruta::after {
+.tomate::before {
   font-family: "Single Day";
   content: "GatoMate";
-  font-size: 100px;
-  position: fixed;
-  bottom: -25px;
+  font-size: 80px;
+  position: relative;
+  bottom: -150%;
   color: #1b191a;
   font-weight: bold;
 }
 
+/* Pseudo-elementos para .tomate */
+.tomate::after {
+  content: "¡Meow!";
+  position: relative;
+  bottom: 150%;
+  left: 80%;
+  transform: translateX(-50%);
+  font-family: "Single Day";
+  font-size: 24px;
+  color: #1b191a;
+}
+
 .cabeza {
   background-color: #1b191a;
-  width: 130px;
-  height: 115px;
+  width: 160px;
+  height: 150px;
   border-radius: 50%;
-  position: fixed;
-  bottom: 300px;
-  left: 610px;
-  z-index: 5;
-}
-
-.oreja {
-  background-color: #1b191a;
-  width: 40px;
-  height: 60px;
-  border-radius: 60% 60% 0 0;
-  position: fixed;
-  top: 42%;
-  transform: translateY(-30%);
-  transform-origin: bottom center;
-}
-
-.oreja::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: inherit;
-  border-radius: 60% 60% 0 0;
-  transform-origin: bottom center;
-}
-
-.oreja-izquierda {
-  transform: rotate(-20deg);
-  left: 42%;
-}
-
-.oreja-derecha {
-  transform: rotate(25deg);
-  left: 46%;
-}
-
-.cara {
   position: relative;
-  top: 40px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  top: -10%;
+  right: 20%;
+}
+
+.cabeza .oreja {
+  background-color: #1b191a;
+  width: 50px;
+  height: 70px;
+  border-radius: 60% 60% 0 0;
+  position: relative;
+  transform-origin: bottom center;
+}
+
+.oreja.oreja-izquierda {
+  transform: rotate(-20deg);
+  top: -25%;
+  left: 15%;
+}
+
+.oreja-izquierda + .oreja-derecha {
+  transform: rotate(20deg);
+  top: -73%;
+  right: -55%;
 }
 
 .ojo {
   background-color: #bebebe;
-  width: 40px;
-  height: 45px;
+  width: 55px;
+  height: 60px;
   border-radius: 45%;
   margin: 0 5px;
   position: relative;
 }
 
-.ojo::before {
+.ojo-derecho {
+  bottom: 100%;
+  left: 8%;
+}
+
+.ojo-izquierdo {
+  bottom: 60%;
+  left: 50%;
+}
+
+.pupila {
   content: "";
-  position: fixed;
-  top: 52%;
-  left: 46%;
-  width: 15px;
-  height: 15px;
+  position: relative;
+  width: 20px;
+  height: 20px;
   background-color: #1b191a;
   border-radius: 40%;
   z-index: 1;
 }
 
-.ojo + .ojo::before {
-  content: "";
-  position: fixed;
-  top: 52%;
-  left: 43%;
-  width: 15px;
-  height: 15px;
-  background-color: #1b191a;
+.pupila-izquierda {
+  bottom: 140%;
+  left: 65%;
+}
+
+.pupila-derecha {
+  bottom: 126%;
+  left: 25%;
+}
+
+.pierna {
+  display: flex;
+  justify-content: center;
+  width: 120%;
+  height: 150%;
+}
+
+.pierna-delantera,
+.pierna-trasera {
+  width: 45px;
+  height: 85px;
   border-radius: 40%;
+  background-color: #1b191a;
+  position: relative;
+}
+.pierna-delantera {
+  margin: 5px 20px;
+  top: -20px;
+  left: 5px;
+  z-index: 5;
+}
+
+.pierna-trasera {
+  margin: 10px 15px;
+  top: -25px;
+  z-index: -2;
+}
+
+.pierna > div:nth-child(1) {
+  transform: translateX(40%);
+}
+
+.pierna > div:nth-child(4) {
+  transform: translateX(-20%);
 }
 
 .cuerpo {
   display: flex;
   justify-content: center;
-  position: relative;
-}
-
-.cuerpo > div:nth-child(1) {
-  background-color: #1b191a;
-}
-.cuerpo > div:nth-child(2) {
-  background-color: #1b191a;
-}
-.cuerpo > div:nth-child(3) {
-  background-color: #1b191a;
-}
-.cuerpo > div:nth-child(4) {
-  background-color: #1b191a;
-}
-
-.pierna-delantera,
-.pierna-trasera {
-  width: 35px;
-  height: 70px;
-  border-radius: 40%;
-}
-
-.pierna-delantera {
-  margin: 5px 20px;
-  transform: translate(-15%, 260%);
-}
-
-.pierna-trasera {
-  margin: 10px 15px;
-  transform: translate(20%, 240%);
-  z-index: -1;
+  height: 30%;
 }
 
 .cola {
@@ -161,43 +169,33 @@ html {
   border-radius: 50%;
   position: relative;
   transform: rotate(80deg);
-  left: 200px;
-  top: -10px;
-  z-index: -1;
+  left: 420px;
+  top: -350%;
+}
+
+.hoja {
+  position: relative;
+  content: "";
+  background-color: #4b594c;
+  width: 120px;
+  height: 50px;
+  border-radius: 40%;
 }
 
 .hoja1 {
-  content: "";
-  position: fixed;
-  background-color: #4b594c;
-  width: 100px;
-  height: 40px;
-  left: 50%;
-  bottom: 65%;
-  transform: rotate(-30deg);
-  border-radius: 40%;
+  top: -500%;
+  left: 15%;
+  transform: rotate(30deg);
 }
 .hoja2 {
-  content: "";
-  position: fixed;
-  background-color: #4b594c;
-  width: 100px;
-  height: 40px;
-  left: 44%;
-  bottom: 65%;
-  transform: rotate(30deg);
-  border-radius: 40%;
-}
-.hoja3 {
-  content: "";
-  position: fixed;
-  background-color: #4b594c;
-  width: 100px;
-  height: 40px;
-  left: 47%;
-  bottom: 67%;
+  bottom: 520%;
+  right: 0%;
   transform: rotate(90deg);
-  border-radius: 40%;
+}
+.hoja:last-child {
+  bottom: 500%;
+  left: -15%;
+  transform: rotate(-30deg);
 }
 
 /* Animaciones y transiciones */
@@ -216,7 +214,7 @@ html {
   }
 }
 
-.gato-fruta:hover .hoja1 {
+.cuerpo:hover .hoja.hoja1 {
   /*Selector " "*/
   animation: balanceoHoja 1s ease-in-out infinite;
 }
@@ -224,35 +222,53 @@ html {
 @keyframes balanceoHoja {
   0%,
   100% {
-    transform: rotate(-30deg);
+    transform: rotate(30deg);
   }
   25% {
-    transform: rotate(-35deg);
+    transform: rotate(40deg);
   }
   75% {
-    transform: rotate(-30deg);
+    transform: rotate(30deg);
   }
 }
 
-.gato-fruta:hover .hoja2 {
+.cuerpo:hover .hoja.hoja3 {
   /*Selector " "*/
-  animation: balanceoHoja2 1s ease-in-out infinite;
+  animation: balanceoHoja3 1s ease-in-out infinite;
 }
 
-@keyframes balanceoHoja2 {
+@keyframes balanceoHoja3 {
   0%,
   100% {
-    transform: rotate(30deg);
+    transform: rotate(-30deg);
   }
   25% {
-    transform: rotate(35deg);
+    transform: rotate(-40deg);
   }
   75% {
-    transform: rotate(30deg);
+    transform: rotate-(30deg);
   }
 }
 
-.cola:hover {
+.cuerpo:hover .cola {
+  /*Selector " "*/
+  animation: balanceoCola 1s ease-in-out infinite;
+}
+
+@keyframes balanceoCola {
+  0%,
+  100% {
+    transform: rotate(80deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  75% {
+    transform: rotate-(80deg);
+  }
+}
+
+.pierna:hover {
   transition: transform 0.5s ease;
-  transform: rotate(100deg);
+  transform: translateY(-10%);
 }
